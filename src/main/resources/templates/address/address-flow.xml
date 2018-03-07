@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+      	http://www.springframework.org/schema/webflow
+      	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+
+	<on-start>
+		<evaluate expression="addressService.emptyAddress()" result="flowScope.address" />
+	</on-start>
+
+	<view-state id="createAddress" view="/address/createAddress" model="address">
+			<transition on="save" to="execute-save">
+				<evaluate expression="addressService.saveAddress(address)" result="flowScope.savedAddressId"></evaluate>
+			</transition>
+	</view-state>
+
+	<decision-state id="execute-save">
+		<if test="savedAddressId==0" then="failure" else="success"/>
+	</decision-state>
+
+	<view-state id="success" view="/address/success" model="address">
+	</view-state>
+	
+	<view-state id="failure" view="/address/failure"></view-state>
+
+</flow>

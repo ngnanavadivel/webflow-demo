@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<style type="text/css">
+	
+		h2 { color: steelblue;	margin: 15px 40px;  }
+		body {	font-family: tahoma,sans-serif;		}
+		
+		label {
+			display: block;
+			font-weight: bold;
+			color: teal;
+			margin:15px 40px;
+		}
+		
+		input {
+			padding: 5px;
+			display: block;
+			font-size: 18pt;
+			margin: 15px 40px;
+			font-family: sans-serif;			
+		}
+	</style>
+</head>
+<body>
+
+	<form th:action="@{${flowExecutionUrl}}" method="POST">
+	
+		<h2>Register Address</h2>
+		
+		<label>Line1</label>
+		<input type="text" name="line1" />
+		
+		<label>Line2</label>
+		<input type="text" name="line2" />
+		
+		<label>City</label>
+		<input type="text" name="city" />
+		
+		<label>State</label>
+		<input type="text" name="state" />
+		
+		<label>Zip</label>
+		<input type="text" name="zip" />
+	
+		<input type="submit" name="_eventId_save" value="Add!" />
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<style>
+body {
+	padding-left: 100px;
+	padding-top: 100px;
+}
+.address {
+	font-family: sans-serif;
+	font-size: 18pt;
+	color: steelblue;
+}
+
+.msg {
+	font-family: arial;
+	font-size: 18pt;
+	color: green;
+}
+p { margin: 0; }
+</style>
+</head>
+<body>
+	<div class="address">
+		<p th:utext="${address.line1}"></p>
+		<p th:utext="${address.line2}"></p>
+		<p th:utext="${address.city}"></p>
+		<p th:utext="${address.state}"></p>
+		<p th:utext="${address.zip}"></p>
+	</div>
+	<br />
+	<span class="msg">Above address has been successfully created!</span>
+</body>
+</html>
